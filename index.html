@@ -597,9 +597,18 @@
 
                 if (mainAiLoadingIndicator) mainAiLoadingIndicator.classList.remove('hidden');
                 if (mainAiResponseContainer) mainAiResponseContainer.classList.add('hidden');
+                
+                // Check if the API key is available
+                const apiKey = ''; // This is a placeholder for the platform to inject the key
+                if (!apiKey) {
+                    const errorMessage = "API key not found. Please ensure you are running this application in the correct environment with a valid API key.";
+                    if (mainAiResponseDiv) mainAiResponseDiv.textContent = errorMessage;
+                    if (mainAiLoadingIndicator) mainAiLoadingIndicator.classList.add('hidden');
+                    if (mainAiResponseContainer) mainAiResponseContainer.classList.remove('hidden');
+                    console.error(errorMessage);
+                    return;
+                }
 
-                // The API key is correctly handled by the platform, no need to manually add it here.
-                const apiKey = '';
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 try {
@@ -770,9 +779,18 @@
 
                 if (recipeLoadingIndicator) recipeLoadingIndicator.classList.remove('hidden');
                 if (recipeResponseContainer) recipeResponseContainer.classList.add('hidden');
+                
+                // Check if the API key is available
+                const apiKey = ''; // This is a placeholder for the platform to inject the key
+                if (!apiKey) {
+                    const errorMessage = "API key not found. Please ensure you are running this application in the correct environment with a valid API key.";
+                    if (recipeResponseDiv) recipeResponseDiv.textContent = errorMessage;
+                    if (recipeLoadingIndicator) recipeLoadingIndicator.classList.add('hidden');
+                    if (recipeResponseContainer) recipeResponseContainer.classList.remove('hidden');
+                    console.error(errorMessage);
+                    return;
+                }
 
-                // The API key is correctly handled by the platform, no need to manually add it here.
-                const apiKey = '';
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
                 // Construct a detailed prompt for the AI
